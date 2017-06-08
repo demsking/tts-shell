@@ -5,9 +5,12 @@ TEXT=$(xsel)
 # Language detection using fastlang (https://github.com/kootenpv/fastlang)
 LANG=`fastlang $TEXT | sed "s/^.*: '\([a-z]*\)',.*/\1/"`
 
-if [ "$LANG" = '' ]; then
+if [ ${#LANG} -gt 2 ]; then
   LANG=en
 fi
+
+echo "TEXT>> $TEXT"
+echo "LANG>> $LANG"
 
 # TTS
 IFS=+
