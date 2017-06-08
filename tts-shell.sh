@@ -14,6 +14,18 @@ echo "LANG>> $LANG"
 
 # TTS
 IFS=+
-API="http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=$TEXT&tl=$LANG"
+ENDPOINT="http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=$TEXT&tl=$LANG"
 
-/usr/bin/mplayer -really-quiet -noconsolecontrols $API
+readText() {
+  /usr/bin/mplayer -really-quiet -noconsolecontrols $ENDPOINT
+}
+
+line=`ps aux | grep /usr/bin/clementine`
+
+if [ -z "$line" ]; then
+  readText
+else
+  clementine --volume-decrease-by 70
+  readText
+  clementine --volume-increase-by 70
+fi
