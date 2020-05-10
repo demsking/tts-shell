@@ -23,7 +23,7 @@ sudo python setup.py install
 Finally, copy the `tts-shell` script to `~/.local/bin`:
 
 ```sh
-wget -P ~/.local/bin https://raw.githubusercontent.com/demsking/tts-shell/master/tts-shell.sh
+wget -P ~/.local/bin https://gitlab.com/demsking/tts-shell/-/raw/master/tts-shell.sh
 chmod +x ~/.local/bin/tts-shell.sh
 ```
 
